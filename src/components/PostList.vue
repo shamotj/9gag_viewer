@@ -32,7 +32,7 @@ export default {
         }
     },
     async mounted() {
-        const response = await fetch('/output.json')
+        const response = await fetch(process.env.BASE_URL + 'output.json')
         this.posts = await response.json()
     }
 }
