@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <FilterPosts @filter-changed="updateFilter" />
+  <PostList :filter="filter" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FilterPosts from './components/FilterPosts.vue'
+import PostList from './components/PostList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FilterPosts,
+    PostList
+  },
+  data() {
+    return {
+      filter: ''
+    }
+  },
+  methods: {
+    updateFilter(filter) {
+      this.filter = filter
+    }
   }
 }
 </script>
 
 <style>
+body {
+  background-color: #eee;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Droid Sans, sans-serif;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
